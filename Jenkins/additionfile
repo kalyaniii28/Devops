@@ -6,7 +6,7 @@ pipeline {
         // Stage to checkout the Git repository containing the script
         stage('Checkout') {
             steps {
-                git 'https://github.com/kalyaniii28/Devops.git'  // Replace with your Git repo
+                checkout SCM
             }
         }
   stages {
