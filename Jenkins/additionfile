@@ -1,16 +1,18 @@
 pipeline {
     agent {
-        docker 'python:3.9'  // Use the official Python Docker image
+        docker 'python:3.9'
+    }
+    environment {
+        NUM1 = '5'  // Set the first number
+        NUM2 = '7'  // Set the second number
     }
     stages {
-        // Stage to checkout the Git repository containing the script
         stage('Checkout') {
             steps {
                 checkout scm  // Pull the repository
             }
         }
 
-        // Stage to run the Python script
         stage('Run python function') {
             steps {
                 sh 'python add.py'  // Run the Python script
