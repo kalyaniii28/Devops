@@ -1,5 +1,9 @@
 pipeline {
-    agent { label 'python-3.9-agent' }  // Use a label for a node with Python 3.9 installed
+    agent {
+        docker {
+            image 'python:3.9'  // This pulls the official Python 3.9 Docker image
+            label 'python-3.9-agent' // You can specify a label if needed
+        }
 
     stages {
         stage('Test') {
@@ -8,4 +12,5 @@ pipeline {
             }
         }
     }
+}
 }
