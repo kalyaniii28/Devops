@@ -1,12 +1,11 @@
 pipeline {
-  agent {
-    docker { image 'node:16-alpine' }
-  }
-  stages {
-    stage('Test') {
-      steps {
-        sh 'node --version'
-      }
+    agent { label 'python-3.9-agent' }  // Use a label for a node with Python 3.9 installed
+
+    stages {
+        stage('Test') {
+            steps {
+                sh 'python3 add.py'  // Use python3 to ensure Python 3.9 is used
+            }
+        }
     }
-  }
 }

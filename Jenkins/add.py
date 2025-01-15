@@ -1,10 +1,14 @@
-# add.py
-import os
+# Simple Python program to add two predefined numbers
 
-# Get the numbers from environment variables
-num1 = float(os.getenv("NUM1", 0))
-num2 = float(os.getenv("NUM2", 0))
+# Function to add two numbers
+def add_numbers(a, b):
+    return a + b
 
-# Perform addition
-result = num1 + num2
-print(f"The result of {num1} + {num2} is {result}")
+# Predefined numbers
+num1 = 5
+num2 = 3
+
+# Perform addition and display the result
+result = add_numbers(num1, num2)
+print(f"The sum of {num1} and {num2} is: {result}")
+
