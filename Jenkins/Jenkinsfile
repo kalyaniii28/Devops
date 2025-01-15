@@ -3,7 +3,7 @@ pipeline {
         docker {
             image 'python:3.9'  // This pulls the official Python 3.9 Docker image
         }
-
+    }
     stages {
         stage('Test') {
             steps {
@@ -11,5 +11,4 @@ pipeline {
             }
         }
     }
-}
 }
