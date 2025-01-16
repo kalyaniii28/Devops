@@ -1,13 +1,15 @@
-pipeline {
-    agent {
-        docker {
-            image 'python:3.9'  // This pulls the official Python 3.9 Docker image
-        }
-    }
-    stages {
-        stage('Test') {
-            steps {
-                sh 'python3 add.py'  // Use python3 to ensure Python 3.9 is used
+pipeline{
+    agenr none{
+        stages{
+            stage ('checkout'){
+                steps{
+                    sh 'yum install python3'
+                }
+            }
+            stage ('test'){
+                steps{
+                    sh 'python3 --version'
+                }
             }
         }
     }
