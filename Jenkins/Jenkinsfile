@@ -1,13 +1,13 @@
-pipeline{
-    agenr none{
-        stages{
-            stage ('checkout'){
-                steps{
-                    sh 'yum install python3'
+pipeline {
+    agent none {
+        stages {
+            stage('checkout') {
+                steps {
+                    sh 'yum install -y python3'
                 }
             }
-            stage ('test'){
-                steps{
+            stage('test') {
+                steps {
                     sh 'python3 --version'
                 }
             }
