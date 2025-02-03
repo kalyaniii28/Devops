@@ -1,0 +1,27 @@
+version: 0.2
+
+env:
+  parameter-store:
+    DOCKER_USERNAME: /my-app/codebuildsecreate/username
+    DOCKER_PASSWORD: /my-app/codebuildsecreate/password
+    DOCKER_URL: /my-app/codebuildsecreate/dockerurl
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.11
+  pre_build:
+    commands:
+      - echo "Installing dependencies"
+      - pip install -r Devops/awscodepipeline/requirements.txt
+  build:
+    commands:
+      - echo "Navigating to the project directory"
+      - cd Devops/awscodepipeline
+      - echo "Building Docker image"
+      - docker build -t "$DOCKER_URL/$DOCKER_USERNAME/python-app:latest" .
+      - echo "Pushing Docker image to the registry"
+      - docker push "$DOCKER_URL/$DOCKER_USERNAME/python-app:latest"
+  post_build:
+    commands:
+      - echo "Build and Docker push completed successfully"
